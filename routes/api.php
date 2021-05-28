@@ -31,6 +31,8 @@ Route::get('/customers/{id}/budgets', [CustomerController::class, 'budgetsByCust
 
 
 Route::resource('products', ProductController::class );
+Route::get('/products-wording', [ProductController::class, 'productsWording']);
+Route::get('/products-wording/{wording}', [ProductController::class, 'productByWording']);
 
 Route::resource('budgets', BudgetController::class );
 Route::get('/budgets/{id}/customer', [BudgetController::class, 'customerByBudget']);
