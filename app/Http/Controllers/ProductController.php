@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -82,5 +83,15 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+    }
+
+    public function productsWording()
+    {
+        return DB::table('products')->select('wording')->distinct()->get();;
+    }
+
+    public function productByWording($wording)
+    {
+        return DB::table('products')->where('wording', $wording)->get();
     }
 }
