@@ -146,24 +146,25 @@ footer {
   <body>
     <header class="clearfix">
       <div id="logo">
-        <img src="logo.png">
+        <img src="https://nellsteel.com/wp-content/uploads/2020/11/logo.png">
       </div>
-      <div id="company" class="clearfix">
+      {{-- <div id="company" class="clearfix">
         <div>{{$details['entreprise']}}</div>
         <div>{{$details['adresse']}}</div>
         <div>{{$details['telephone']}}</div>
-        <div><a href="{{$details['email']}}">{{$details['email']}}</a></div>
-      </div>
+        <div><a href="mailto:{{$details['email']}}">{{$details['email']}}</a></div>
+      </div> --}}
       <div id="project">
-        <div><span>PROJECT</span> Website development</div>
-        <div><span>CLIENT</span> John Doe</div>
-        <div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>
-        <div><span>EMAIL</span> <a href="mailto:john@example.com">john@example.com</a></div>
-        <div><span>DATE</span> August 17, 2015</div>
-        <div><span>DUE DATE</span> September 17, 2015</div>
+        <div><span>ENTREPRISE: </span>{{$details['entreprise']}}</div>
+        <div><span>CLIENT: </span> {{$details['entreprise']}} </div>
+        <div><span>ADRESSE: </span> {{$details['adresse']}}</div>
+        <div><span>EMAIL: </span> <a href="mailto:{{$details['email']}}">{{$details['email']}}</a></div>
+        <div><span>DATE: </span>{{now()->format('d-m-y H:i')}} </div>
+        {{-- <div><span>DUE DATE</span> September 17, 2015</div> --}}
       </div>
     </header>
     <main>
+        <h2 style="text-align: center;">Demande de Devis de : {{ isset($details['nom']) ? $details['nom']: $details['entreprise'] }}</h2>
       <table>
         <thead>
           <tr>
@@ -183,13 +184,12 @@ footer {
          
         </tbody>
       </table>
-      <div id="notices">
-        <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-      </div>
+      {{-- <div id="notices">
+        <div>NB:</div>
+        <div class="notice">.</div>
+      </div> --}}
     </main>
     <footer>
-      Invoice was created on a computer and is valid without the signature and seal.
     </footer>
   </body>
 </html>

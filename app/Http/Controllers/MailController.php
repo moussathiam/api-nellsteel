@@ -26,7 +26,7 @@ class MailController extends Controller
 
             ];
             
-            Mail::to($request->email)->send(new NellsteelMail($details,$produits ));
+            Mail::to(env('EMAIL_COMP'))->send(new NellsteelMail($details,$produits ));
     
             return ["msg"=>"Message envoyer avec succés "];
 
