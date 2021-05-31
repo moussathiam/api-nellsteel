@@ -17,7 +17,14 @@ class MailController extends Controller
             
             //
             $produits=$request->produits;
-            $details['title']='Demande de devis';
+            $details=[
+                "title"=>'Demande de devis',
+                "email"=>$request->email,
+                "adresse"=>$request->adresse,
+                "telephone"=>$request->telephone,
+                "entreprise"=>$request->entreprise
+
+            ];
             
             Mail::to($request->email)->send(new NellsteelMail($details,$produits ));
     
