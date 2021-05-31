@@ -11,15 +11,17 @@ class NellsteelMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $details;
+    public $produits;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($details,$produits)
     {
         $this->details = $details;
+        $this->produits = $produits;
     }
 
     /**
@@ -29,7 +31,7 @@ class NellsteelMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.nellsteelMail')
-                    ->with('details', $this->details);
+        return $this->view('emails.nellsteelMail')
+                    ->with('details', $this->details,'produits',$this->produits);
     }
 }

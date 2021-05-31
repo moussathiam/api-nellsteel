@@ -1,12 +1,24 @@
 @component('mail::message')
 # {{ $details['title'] }}
 
-{{$details['body']}}
 
-@component('mail::button',['url' => $details['url']])
-Button Text
+
+
+@component('mail::table')
+| Produits      | Type          | Quantite |
+| ------------- |:-------------:| --------:|
+@foreach ($produits as $produit)
+| {{ $produit['nom'] }}     | {{ $produit['type'] }}        |  {{ $produit['quantite'] }}     |
+    
+@endforeach
 @endcomponent
 
-Thanks,<br>
+
+
+{{-- @component('mail::button',['url' => $details['url']])
+Button Text
+@endcomponent --}}
+
+Merci,<br>
 {{ config('app.name') }}
 @endcomponent

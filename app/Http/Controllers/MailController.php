@@ -8,30 +8,23 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function envoie()
+    public function envoie(Request $request)
 
     {
+        // return 
+        
+        if ($request->email) {
+            
+            //
+            $produits=$request->produits;
+            $details['title']='Demande de devis';
+            
+            Mail::to($request->email)->send(new NellsteelMail($details,$produits ));
+    
+            return ["msg"=>"Message envoyer avec succés "];
 
-        $myEmail = 'diattamohamet30@gmail.com';
-
-   
-
-        $details = [
-
-            'title' => 'Mail Demo from ItSolutionStuff.com',
-
-            'url' => 'https://www.itsolutionstuff.com',
-            'body'=> 'Bonne réception !!'
-
-        ];
-
-  
-
-        Mail::to($myEmail)->send(new NellsteelMail($details));
-
-   
-
-        dd("Mail Send Successfully");
+        }
+        return ["error"=>"Erreur l'ors de l'nvoie du fichier "];
 
     }
 }

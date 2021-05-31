@@ -1,15 +1,16 @@
 <?php
 
+use App\Models\Budget;
+use App\Models\Product;
+
+use App\Models\Custumer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Custumer;
-use App\Models\Product;
-use App\Models\Budget;
-
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\BudgetController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,4 @@ Route::resource('products', ProductController::class );
 Route::resource('budgets', BudgetController::class );
 Route::get('/budgets/{id}/customer', [BudgetController::class, 'customerByBudget']);
 Route::get('/budgets/{id}/products', [BudgetController::class, 'productsByBudget']);
+Route::post('email', [MailController::class, 'envoie']);
