@@ -13,7 +13,7 @@ class MailController extends Controller
     {
         // return 
         
-        if ($request->email) {
+        if ($request->nom) {
             
             //
             $produits=$request->produits;
