@@ -20,6 +20,7 @@ class MailController extends Controller
             $details=[
                 "title"=>'Demande de devis',
                 "email"=>$request->email,
+                "nom"=>$request->nom,
                 "adresse"=>$request->adresse,
                 "telephone"=>$request->telephone,
                 "entreprise"=>$request->entreprise
