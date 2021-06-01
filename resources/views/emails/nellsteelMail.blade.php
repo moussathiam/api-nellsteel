@@ -176,8 +176,8 @@ footer {
         <tbody>
             @foreach ($produits as $produit)
             <tr>
-                <td class="service"> {{$produit['nom'] }}</td>
-                <td class="desc">{{ $produit['type'] }}</td>
+                <td class="service"> {{$produit['type'] }}</td>
+                <td class="desc">{{ $produit['taille'] }}</td>
                 <td class="unit">{{ $produit['quantite'] }} </td>
             </tr>
             @endforeach
